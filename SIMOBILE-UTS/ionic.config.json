@@ -1,0 +1,7 @@
+{
+  "name": "SIMOBILE-UTS",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
