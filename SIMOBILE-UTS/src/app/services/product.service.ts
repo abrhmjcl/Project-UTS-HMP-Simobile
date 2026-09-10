@@ -1,8 +1,8 @@
-import { inject, Service } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Product } from '../models/product.models';
 
-@injectable({
-  providedIn: 'root',
+@Injectable({
+providedIn: 'root',
 })
 export class ProductService {
     private products: Product[] = [
@@ -108,12 +108,11 @@ export class ProductService {
         }
     ];
 
-    // read method
     private nextId = 11;
     constructor() {
     }
 
-    getAllProductById(id: number): Product | undefined {
+    getProductById(id: number): Product | undefined {
         return this.products.find(p => p.id === id);
     }
 
