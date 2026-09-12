@@ -3,44 +3,13 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
+    path: 'home',
+    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+  },
+  {
     path: '',
-    redirectTo: 'tabs/dashboard',
+    redirectTo: 'home',
     pathMatch: 'full'
-  },
-
-  {
-    path: 'tabs',
-    loadChildren: () => import('./pages/tabs/tabs.module').then(m => m.TabsPageModule)
-  },
-
-  {
-    path: 'product-detail/:id',
-    loadChildren: () => import('./pages/product-detail/product-detail.module').then(m => m.ProductDetailPageModule)
-  },
-  {
-    path: 'product-form',
-    loadChildren: () => import('./pages/product-form/product-form.module').then(m => m.ProductFormPageModule)
-  },
-  {
-    path: 'product-form/:id',
-    loadChildren: () => import('./pages/product-form/product-form.module').then(m => m.ProductFormPageModule)
-  },
-  {
-    path: 'transaction-history',
-    loadChildren: () => import('./pages/transaction-history/transaction-history.module').then(m => m.TransactionHistoryPageModule)
-  },
-  {
-    path: 'transaction-detail/:id',
-    loadChildren: () => import('./pages/transaction-detail/transaction-detail.module').then(m => m.TransactionDetailPageModule)
-  },
-
-  {
-    path: 'settings',
-    loadChildren: () => import('./pages/settings/settings.module').then(m => m.SettingsPageModule)
-  },
-  {
-    path: 'about',
-    loadChildren: () => import('./pages/about/about.module').then(m => m.AboutPageModule)
   },
 ];
 
