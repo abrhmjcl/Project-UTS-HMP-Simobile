@@ -1,3 +1,66 @@
-<ion-app>
-  <ion-router-outlet></ion-router-outlet>
-</ion-app>
+<ion-menu contentId="main-content" type="overlay">
+
+    <ion-header>
+        <ion-toolbar color="primary">
+            <ion-title>SIMOBILE</ion-title>
+        </ion-toolbar>
+    </ion-header>
+    <ion-content>
+        <ion-list>
+            <ion-list-header>
+                <ion-label>Menu Utama</ion-label>
+            </ion-list-header>
+
+            <ion-menu-toggle auto-hide="true">
+                <ion-item routerLink="/tabs/dashboard" routerLinkActive="selected" routerDirection="root" lines="none" detail="false">
+                    <ion-icon name="home-outline" slot="start"></ion-icon>
+                    <ion-label>Dashboard</ion-label>
+                </ion-item>
+            </ion-menu-toggle>
+
+            <ion-menu-toggle auto-hide="true">
+                <ion-item routerLink="/tabs/products" routerLinkActive="selected" routerDirection="root" lines="none" detail="false">
+                    <ion-icon name="cube-outline" slot="start"></ion-icon>
+                    <ion-label>Produk</ion-label>
+                </ion-item>
+            </ion-menu-toggle>
+
+            <ion-menu-toggle auto-hide="true">
+                <ion-item routerLink="/tabs/cart" routerLinkActive="selected" routerDirection="root" lines="none" detail="false">
+                    <ion-icon name="cart-outline" slot="start"></ion-icon>
+                    <ion-label>Keranjang</ion-label>
+                </ion-item>
+            </ion-menu-toggle>
+
+            <ion-menu-toggle auto-hide="true">
+                <ion-item routerLink="/transaction-history" routerLinkActive="selected" routerDirection="root" lines="none" detail="false">
+                    <ion-icon name="receipt-outline" slot="start"></ion-icon>
+                    <ion-label>Riwayat Transaksi</ion-label>
+                </ion-item>
+            </ion-menu-toggle>
+        </ion-list>
+
+        <ion-list>
+            <ion-list-header>
+                <ion-label>Lainnya</ion-label>
+            </ion-list-header>
+
+            <ion-menu-toggle auto-hide="true">
+                <ion-item routerLink="/settings" routerLinkActive="selected" routerDirection="root" lines="none" detail="false">
+                    <ion-icon name="settings-outline" slot="start"></ion-icon>
+                    <ion-label>Pengaturan</ion-label>
+                </ion-item>
+            </ion-menu-toggle>
+
+            <ion-menu-toggle auto-hide="true">
+                <ion-item routerLink="/about" routerLinkActive="selected" routerDirection="root" lines="none" detail="false">
+                    <ion-icon name="information-circle-outline" slot="start"></ion-icon>
+                    <ion-label>Tentang Aplikasi</ion-label>
+                </ion-item>
+            </ion-menu-toggle>
+        </ion-list>
+
+    </ion-content>
+</ion-menu>
+
+<ion-router-outlet id="main-content"></ion-router-outlet>
