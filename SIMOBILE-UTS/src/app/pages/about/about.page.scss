@@ -1,0 +1,48 @@
+.logo-container {
+    margin-top: 24px;
+    margin-bottom: 8px;
+}
+
+.app-logo {
+    font-size: 72px;
+    color: var(--ion-color-primary);
+}
+
+.app-name {
+    font-size: 28px;
+    font-weight: 700;
+    margin: 8px 0 4px 0;
+    color: var(--ion-color-primary);
+}
+
+.app-subtitle {
+    font-size: 14px;
+    color: var(--ion-color-medium);
+    margin: 0 0 4px 0;
+}
+
+.app-version {
+    font-size: 12px;
+    color: var(--ion-color-medium);
+    margin: 0;
+}
+
+.divider {
+    width: 60px;
+    height: 3px;
+    background: var(--ion-color-primary);
+    margin: 16px auto;
+    border-radius: 2px;
+}
+
+ion-card {
+    text-align: left;
+    margin: 16px 0;
+}
+
+.footer-text {
+    font-size: 11px;
+    color: var(--ion-color-medium);
+    margin-top: 24px;
+    margin-bottom: 32px;
+}
