@@ -1,7 +1,11 @@
 <ion-header [translucent]="true">
   <ion-toolbar color="primary">
-    <ion-title>Beranda UTS SIMOBILE</ion-title>
+    <ion-title>AboutYou Store</ion-title>
     <ion-buttons slot="end">
+      <!-- Tombol Keranjang Cepat di Header -->
+      <ion-button routerLink="/cart">
+        <ion-icon slot="icon-only" name="cart-outline"></ion-icon>
+      </ion-button>
       <ion-button>
         <ion-icon slot="icon-only" name="notifications-outline"></ion-icon>
       </ion-button>
@@ -10,24 +14,38 @@
 </ion-header>
 
 <ion-content [fullscreen]="true" class="ion-padding">
-  <!-- Kartu Profil / Welcome -->
+  <!-- Banner Utama Sambutan -->
   <ion-card>
     <ion-card-header>
-      <ion-card-subtitle>Proyek Mobile HMP</ion-card-subtitle>
+      <ion-card-subtitle>Aplikasi Mobile Toko</ion-card-subtitle>
       <ion-card-title>Halo, Dylan Hidayat! 👋</ion-card-title>
     </ion-card-header>
     <ion-card-content>
-      Selamat datang di aplikasi UTS Mobile. Ini adalah halaman Beranda yang dikerjakan oleh <strong>Person 2</strong>.
+      Temukan produk terbaik pilihanmu hari ini dengan promo spesial.
     </ion-card-content>
   </ion-card>
 
-  <!-- Menu Navigasi Cepat -->
+  <!-- Grid Ringkasan Cepat (Stats) -->
+  <ion-grid class="stats-grid">
+    <ion-row>
+      @for (stat of stats; track stat.label) {
+        <ion-col size="4">
+          <div class="stat-box">
+            <ion-icon [name]="stat.icon" color="primary"></ion-icon>
+            <h3>{{ stat.value }}</h3>
+            <p>{{ stat.label }}</p>
+          </div>
+        </ion-col>
+      }
+    </ion-row>
+  </ion-grid>
+
+  <!-- Menu Navigasi ke Halaman Tim -->
   <ion-list>
     <ion-list-header>
-      <ion-label><strong>Menu Utama</strong></ion-label>
+      <ion-label><strong>Jelajahi Menu</strong></ion-label>
     </ion-list-header>
 
-    <!-- Menggunakan sintaks @for modern standar Angular 17+ -->
     @for (item of menuList; track item.title) {
       <ion-item [routerLink]="item.url" detail button>
         <ion-icon [name]="item.icon" slot="start" color="primary"></ion-icon>

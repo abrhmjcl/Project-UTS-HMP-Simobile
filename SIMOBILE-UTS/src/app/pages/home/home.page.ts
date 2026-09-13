@@ -8,16 +8,45 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomePage implements OnInit {
 
+  // Menu yang terhubung langsung dengan halaman anggota tim lain
   menuList = [
-    { title: 'Data Anggota', desc: 'Lihat daftar anggota organisasi', icon: 'people-outline', url: '/anggota' },
-    { title: 'Jadwal Kegiatan', desc: 'Agenda kegiatan mendatang', icon: 'calendar-outline', url: '/kegiatan' },
-    { title: 'Pengaturan Akun', desc: 'Kelola profil dan preferensi', icon: 'settings-outline', url: '/pengaturan' }
+    { 
+      title: 'Katalog Produk', 
+      desc: 'Lihat dan cari semua produk tersedia', 
+      icon: 'bag-handle-outline', 
+      url: '/product-list' 
+    },
+    { 
+      title: 'Keranjang Belanja', 
+      desc: 'Cek pesanan yang siap dibayar', 
+      icon: 'cart-outline', 
+      url: '/cart' 
+    },
+    { 
+      title: 'Dashboard Toko', 
+      desc: 'Ringkasan performa dan penjualan', 
+      icon: 'bar-chart-outline', 
+      url: '/dashboard' 
+    },
+    { 
+      title: 'Profil Saya', 
+      desc: 'Informasi akun dan riwayat belanja', 
+      icon: 'person-outline', 
+      url: '/profile' 
+    }
+  ];
+
+  // Ringkasan cepat (Quick Stats)
+  stats = [
+    { label: 'Produk', value: '24+', icon: 'cube-outline' },
+    { label: 'Diskon', value: '50%', icon: 'pricetag-outline' },
+    { label: 'Rating', value: '4.9', icon: 'star-outline' }
   ];
 
   constructor() { }
 
   ngOnInit() {
-    console.log('Halaman Home Person 2 berhasil dimuat!');
+    console.log('Halaman Home Person 2 berhasil terintegrasi!');
   }
 
 }
