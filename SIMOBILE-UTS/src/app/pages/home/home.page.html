@@ -1,0 +1,41 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-title>Beranda UTS SIMOBILE</ion-title>
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon slot="icon-only" name="notifications-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <!-- Kartu Profil / Welcome -->
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>Proyek Mobile HMP</ion-card-subtitle>
+      <ion-card-title>Halo, Dylan Hidayat! 👋</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      Selamat datang di aplikasi UTS Mobile. Ini adalah halaman Beranda yang dikerjakan oleh <strong>Person 2</strong>.
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Menu Navigasi Cepat -->
+  <ion-list>
+    <ion-list-header>
+      <ion-label><strong>Menu Utama</strong></ion-label>
+    </ion-list-header>
+
+    <!-- Menggunakan sintaks @for modern standar Angular 17+ -->
+    @for (item of menuList; track item.title) {
+      <ion-item [routerLink]="item.url" detail button>
+        <ion-icon [name]="item.icon" slot="start" color="primary"></ion-icon>
+        <ion-label>
+          <h2>{{ item.title }}</h2>
+          <p>{{ item.desc }}</p>
+        </ion-label>
+      </ion-item>
+    }
+  </ion-list>
+</ion-content>
