@@ -34,7 +34,7 @@ export class CartService {
             this.cartItems.push({
                 product: product,
                 quantity: quantity,
-            subtotal: product.sellingPrice * quantity
+                subtotal: product.sellingPrice * quantity
             });
         }
     }

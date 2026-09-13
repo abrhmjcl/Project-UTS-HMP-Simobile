@@ -7,8 +7,6 @@ import { Component, OnInit } from '@angular/core';
   standalone: false,
 })
 export class HomePage implements OnInit {
-
-  // Menu yang terhubung langsung dengan halaman anggota tim lain
   menuList = [
     { 
       title: 'Katalog Produk', 
@@ -35,8 +33,6 @@ export class HomePage implements OnInit {
       url: '/profile' 
     }
   ];
-
-  // Ringkasan cepat (Quick Stats)
   stats = [
     { label: 'Produk', value: '24+', icon: 'cube-outline' },
     { label: 'Diskon', value: '50%', icon: 'pricetag-outline' },

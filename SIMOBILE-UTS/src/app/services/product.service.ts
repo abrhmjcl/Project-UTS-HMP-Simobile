@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Product } from '../models/product.model';
+import { Product } from '../models/product.models';
 
 @Injectable({
     providedIn: 'root'
@@ -109,58 +109,58 @@ export class ProductService {
     }
 ];
 
-    private nextId = 11;
-    
-    constructor() { }
-    
-    getAllProducts(): Product[] {
-        return this.products;
+private nextId = 11;
+
+constructor() { }
+
+getAllProducts(): Product[] {
+    return this.products;
+}
+getProductById(id: number): Product | undefined {
+    return this.products.find(p => p.id === id);
+}
+searchProducts(keyword: string): Product[] {
+    if (!keyword || keyword.trim() === '') {
+    return this.products;
+}
+    const lowerKeyword = keyword.toLowerCase();
+    return this.products.filter(p =>
+        p.name.toLowerCase().includes(lowerKeyword) ||
+        p.category.toLowerCase().includes(lowerKeyword)
+);
+}
+getTotalProductCount(): number {
+    return this.products.length;
+}
+addProduct(product: Omit<Product, 'id'>): void {
+    const newProduct: Product = {
+        ...product,
+        id: this.nextId++
+    };
+    this.products.push(newProduct);
+}
+updateProduct(id: number, updatedData: Partial<Product>): boolean {
+    const index = this.products.findIndex(p => p.id === id);
+    if (index !== -1) {
+        this.products[index] = { ...this.products[index], ...updatedData };
+        return true;
     }
-    getProductById(id: number): Product | undefined {
-        return this.products.find(p => p.id === id);
+    return false;
+}
+deleteProduct(id: number): boolean {
+    const index = this.products.findIndex(p => p.id === id);
+    if (index !== -1) {
+        this.products.splice(index, 1);
+        return true;
     }
-    searchProducts(keyword: string): Product[] {
-        if (!keyword || keyword.trim() === '') {
-        return this.products;
+    return false;
+}
+updateStock(productId: number, quantitySold: number): boolean {
+    const product = this.getProductById(productId);
+    if (product && product.stock >= quantitySold) {
+        product.stock -= quantitySold;
+        return true;
     }
-        const lowerKeyword = keyword.toLowerCase();
-        return this.products.filter(p =>
-            p.name.toLowerCase().includes(lowerKeyword) ||
-            p.category.toLowerCase().includes(lowerKeyword)
-    );
+    return false;
     }
-    getTotalProductCount(): number {
-        return this.products.length;
-    }
-    addProduct(product: Omit<Product, 'id'>): void {
-        const newProduct: Product = {
-            ...product,
-            id: this.nextId++
-        };
-        this.products.push(newProduct);
-    }
-    updateProduct(id: number, updatedData: Partial<Product>): boolean {
-        const index = this.products.findIndex(p => p.id === id);
-        if (index !== -1) {
-            this.products[index] = { ...this.products[index], ...updatedData };
-            return true;
-        }
-        return false;
-    }
-    deleteProduct(id: number): boolean {
-        const index = this.products.findIndex(p => p.id === id);
-        if (index !== -1) {
-            this.products.splice(index, 1);
-            return true;
-        }
-        return false;
-    }
-    updateStock(productId: number, quantitySold: number): boolean {
-        const product = this.getProductById(productId);
-        if (product && product.stock >= quantitySold) {
-            product.stock -= quantitySold;
-            return true;
-        }
-        return false;
-        }
 }
