@@ -7,12 +7,10 @@ const routes: Routes = [
     redirectTo: 'tabs/dashboard',
     pathMatch: 'full'
   },
-
   {
     path: 'tabs',
     loadChildren: () => import('./pages/tabs/tabs.module').then(m => m.TabsPageModule)
   },
-
   {
     path: 'product-detail/:id',
     loadChildren: () => import('./pages/product-detail/product-detail.module').then(m => m.ProductDetailPageModule)
@@ -26,6 +24,11 @@ const routes: Routes = [
     loadChildren: () => import('./pages/product-form/product-form.module').then(m => m.ProductFormPageModule)
   },
   {
+    path: 'cart',
+    loadChildren: () => import('./pages/cart/cart.module').then(m => m.CartPageModule)
+  },
+
+  {
     path: 'transaction-history',
     loadChildren: () => import('./pages/transaction-history/transaction-history.module').then(m => m.TransactionHistoryPageModule)
   },
@@ -33,7 +36,6 @@ const routes: Routes = [
     path: 'transaction-detail/:id',
     loadChildren: () => import('./pages/transaction-detail/transaction-detail.module').then(m => m.TransactionDetailPageModule)
   },
-
   {
     path: 'settings',
     loadChildren: () => import('./pages/settings/settings.module').then(m => m.SettingsPageModule)
@@ -41,7 +43,7 @@ const routes: Routes = [
   {
     path: 'about',
     loadChildren: () => import('./pages/about/about.module').then(m => m.AboutPageModule)
-  }
+  },
 ];
 
 @NgModule({

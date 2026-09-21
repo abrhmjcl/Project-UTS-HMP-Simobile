@@ -16,8 +16,8 @@ const routes: Routes = [
         loadChildren: () => import('../product-list/product-list.module').then(m => m.ProductListPageModule)
       },
       {
-        path: 'cart',
-        loadChildren: () => import('../cart/cart.module').then(m => m.CartPageModule)
+        path: 'transactions',
+        loadChildren: () => import('../transaction-history/transaction-history.module').then(m => m.TransactionHistoryPageModule)
       },
       {
         path: 'profile',

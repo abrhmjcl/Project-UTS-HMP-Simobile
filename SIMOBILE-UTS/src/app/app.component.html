@@ -26,7 +26,7 @@
             </ion-menu-toggle>
 
             <ion-menu-toggle auto-hide="true">
-                <ion-item routerLink="/tabs/cart" routerLinkActive="selected" routerDirection="root" lines="none" detail="false">
+                <ion-item routerLink="/cart" routerLinkActive="selected" routerDirection="root" lines="none" detail="false">
                     <ion-icon name="cart-outline" slot="start"></ion-icon>
                     <ion-label>Keranjang</ion-label>
                 </ion-item>
@@ -56,6 +56,13 @@
                 <ion-item routerLink="/about" routerLinkActive="selected" routerDirection="root" lines="none" detail="false">
                     <ion-icon name="information-circle-outline" slot="start"></ion-icon>
                     <ion-label>Tentang Aplikasi</ion-label>
+                </ion-item>
+            </ion-menu-toggle>
+
+            <ion-menu-toggle auto-hide="true">
+                <ion-item (click)="logout()" lines="none" detail="false">
+                    <ion-icon name="log-out-outline" slot="start"></ion-icon>
+                    <ion-label>Logout</ion-label>
                 </ion-item>
             </ion-menu-toggle>
         </ion-list>
