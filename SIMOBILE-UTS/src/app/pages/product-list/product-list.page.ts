@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ProductService } from '../../services/product.service';
 import { CartService } from '../../services/cart.service';
-import { Product } from '../../models/product.model';
+import { Product } from '../../models/product.models';
+import { AnimationController } from '@ionic/angular/lazy';
+import { fadeInProductsAnimation } from '../../animations/product-fade-in.animation';
 
 @Component({
   selector: 'app-product-list',
@@ -18,7 +20,8 @@ export class ProductListPage implements OnInit {
   constructor(
     private productService: ProductService,
     private cartService: CartService,
-    private router: Router
+    private router: Router,
+    private animationCtrl: AnimationController
   ) {}
 
   ngOnInit() {
@@ -53,5 +56,27 @@ export class ProductListPage implements OnInit {
 
   handleViewDetail(productId: number) {
     this.router.navigate(['/tabs/product-detail', productId]);
+  }
+
+ 
+  
+  fadeInProducts() {
+    const cards = document.querySelectorAll('.product-card');
+    cards.forEach((card, index) => {
+      const anim = this.animationCtrl.create()
+        .addElement(card as HTMLElement)
+        .duration(500)
+        .delay(index * 100)
+        .iterations(1)
+        .keyframes([
+          { offset: 0, opacity: '0', transform: 'translateY(20px)' },
+          { offset: 1, opacity: '1', transform: 'translateY(0)' }
+        ]);
+      anim.play();
+    });
+  }
+
+  ionViewDidEnter() {
+    this.fadeInProducts();
   }
 }
